@@ -1,0 +1,6 @@
+.blue_border{
+    border-radius:50%;
+    border-color: blue;
+    border: 5px,solid,blue;
+    height: 100px;   
+}
