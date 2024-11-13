@@ -57,3 +57,19 @@ export const update = async(req,res)=>{
         res.status(500).json({error:error.message})
     }
 };
+export const restaurantdelete = async(req,res)=>{
+    try{
+        const id=req.params.id;
+        const restaurantdata=await restaurant.findById(id)
+    if(!restaurantdata){
+        return res.status(404).json({msg:"Restaurant data not found"});
+        }
+    res.status(200).json(restaurantdata);
+    
+    const updatedata=await restaurant.findByIdAndDelete(id,req.body,{new:true});
+    }
+
+    catch(error){
+        res.status(500).json({error:error.message})
+    }
+};
